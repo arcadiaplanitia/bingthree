@@ -42,9 +42,9 @@ def browserSetup(isMobile: bool, user_agent: str = PC_USER_AGENT) -> WebDriver:
     options = Options()
     if ARGS.session:
         if not isMobile:
-            options.add_argument(rf'--user-data-dir={os.path.join(os.getcwd()+"/Profiles/" + CURRENT_ACCOUNT, "PC")}')
+            options.add_argument(rf'--user-data-dir={os.path.join("C:/Users/trevo/Downloads/Microsoft-Rewards-bot-master/Microsoft-Rewards-bot-master"+"/Profiles/" + CURRENT_ACCOUNT, "PC")}')
         else:
-            options.add_argument(rf'--user-data-dir={os.path.join(os.getcwd()+"/Profiles/" + CURRENT_ACCOUNT, "Mobile")}')
+            options.add_argument(rf'--user-data-dir={os.path.join("C:/Users/trevo/Downloads/Microsoft-Rewards-bot-master/Microsoft-Rewards-bot-master"+"/Profiles/" + CURRENT_ACCOUNT, "Mobile")}')
     options.add_argument("user-agent=" + user_agent)
     options.add_argument('lang=' + LANG.split("-")[0])
     options.add_argument('--disable-blink-features=AutomationControlled')
@@ -1072,7 +1072,7 @@ def Logo():
     prPurple("            by @Charlesbel upgraded by @Farshadz1997        version 2.1\n")
 
 try:
-    account_path = os.path.dirname(os.path.abspath(__file__)) + '/accounts.json'
+    account_path = 'c:/Users/trevo/Downloads/Microsoft-Rewards-bot-master/Microsoft-Rewards-bot-master/accounts.json'
     filename, ext = os.path.splitext(os.path.basename(account_path))
     ACCOUNTS = json.load(open(account_path, "r"))
 except FileNotFoundError:
