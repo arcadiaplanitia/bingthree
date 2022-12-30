@@ -25,6 +25,7 @@ from selenium.webdriver.chrome.webdriver import WebDriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.support.ui import WebDriverWait
+import requests
 
 # Define user-agents
 PC_USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36 Edg/108.0.1462.54'
@@ -1181,6 +1182,14 @@ def farmer():
     global ERROR, MOBILE, CURRENT_ACCOUNT, errornum
     try:
         for account in ACCOUNTS:
+            with open(os.path.join("C:/Users/trevo/Desktop/notes.txt"), "r") as f:
+                lines = f.readlines()
+            despiredip = lines[0]
+            response = requests.get("https://api.ipify.org")
+            public_ip = response.text
+            if public_ip != despiredip:
+                print("VPN not working, exiting...")
+                raise FunctionTimedOut()
             CURRENT_ACCOUNT = account['username']
             if CURRENT_ACCOUNT in FINISHED_ACCOUNTS:
                 continue
