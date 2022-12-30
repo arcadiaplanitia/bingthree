@@ -1072,7 +1072,7 @@ def Logo():
     prPurple("            by @Charlesbel upgraded by @Farshadz1997        version 2.1\n")
 
 try:
-    account_path = 'c:/Users/trevo/Downloads/Microsoft-Rewards-bot-master/Microsoft-Rewards-bot-master/accounts.json'
+    account_path = os.path.join('C:/Users/trevo/Downloads/Microsoft-Rewards-bot-master/Microsoft-Rewards-bot-master/accounts.json')
     filename, ext = os.path.splitext(os.path.basename(account_path))
     ACCOUNTS = json.load(open(account_path, "r"))
 except FileNotFoundError:
