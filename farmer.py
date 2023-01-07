@@ -28,8 +28,8 @@ from selenium.webdriver.support.ui import WebDriverWait
 import requests
 
 # Define user-agents
-PC_USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36 Edg/108.0.1462.54'
-MOBILE_USER_AGENT = 'Mozilla/5.0 (Linux; Android 12; SM-N9750) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Mobile Safari/537.36 EdgA/108.0.1462.54'
+PC_USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36 Edg/108.0.1462.76'
+MOBILE_USER_AGENT = 'Mozilla/5.0 (Linux; Android 12; SM-N9750) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Mobile Safari/537.36 EdgA/108.0.1462.76'
 
 POINTS_COUNTER = 0
 
@@ -826,7 +826,7 @@ def completePunchCards(browser: WebDriver):
                     new_url = 'https://account.microsoft.com/rewards/dashboard/'
                     userCode = path[:4]
                     dest = new_url + userCode + path.split(userCode)[1]
-                completePunchCard(browser, dest, punchCard['childPromotions'])
+                completePunchCard(browser, url, punchCard['childPromotions'])
         except:
             resetTabs(browser)
     time.sleep(2)
