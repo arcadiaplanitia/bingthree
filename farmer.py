@@ -1189,7 +1189,8 @@ def farmer():
             public_ip = response.text
             if public_ip != despiredip:
                 print("VPN not working, exiting...")
-                raise FunctionTimedOut()
+                time.sleep(120)
+                continue
             else:
                 print("IP good")
             CURRENT_ACCOUNT = account['username']
